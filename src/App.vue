@@ -1,30 +1,57 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <Navigation />
+  <router-view />
+  <Footer />
 </template>
 
+<script>
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer.vue";
+
+export default {
+  name: "app",
+  components: {
+    Navigation,
+    Footer,
+  },
+  data() {
+    return {};
+  },
+  created() {},
+  mounted() {},
+  methods: {},
+  watch: {},
+};
+</script>
+
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap");
+
+:root {
+  --color-background: hsla(52, 30%, 91%, 1);
+  --color-accent: hsla(13, 68%, 63%, 1);
+  --color-tertiary: hsla(234, 20%, 30%, 1);
+  --color-primary: hsla(151, 24%, 30%, 1);
+  --color-secondary: hsla(37, 79%, 75%, 1);
 }
 
-#nav {
-  padding: 30px;
+* {
+  box-sizing: border-box;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+body {
+  margin: 0;
+  font-family: "Comfortaa", cursive;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
 }
 </style>
