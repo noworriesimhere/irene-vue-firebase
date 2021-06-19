@@ -1,18 +1,18 @@
 <template>
   <footer>
     <section>
+      <small>Uptown Blooms Copyright 2021</small>
+    </section>
+    <section>
+      <small>Developed by <a href="https://alantran.tech">Alan Tran</a></small>
+    </section>
+    <section>
       <a href="#">
         <i class="fab fa-facebook-square" />
       </a>
       <a href="#">
         <i class="fab fa-instagram" />
       </a>
-    </section>
-    <section>
-      <small>Uptown Blooms Copyright 2021</small>
-    </section>
-    <section>
-      <small>Developed by <a href="https://alantran.tech">Alan Tran</a></small>
     </section>
   </footer>
 </template>
@@ -25,25 +25,31 @@ export default {
 
 <style lang="scss" scoped>
 footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: center;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  padding: 0.25em;
+  right: 0;
+  height: 100vh;
+  padding: 5em 0.25em 0 0.25em;
+  background-color: var(--color-background);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 
   section {
     text-align: center;
+    padding: 2em 0;
   }
 
   i {
-    padding: 0 0.5em;
+    padding: 1em 0;
+    color: var(--color-primary);
   }
 
-  @media (max-width: 850px) {
+  /* @media (max-width: 850px) {
     position: absolute;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-  }
+  } */
 }
 </style>

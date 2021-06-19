@@ -72,6 +72,10 @@ export default {
 <style lang="scss" scoped>
 header {
   z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
   .link {
     font-weight: 400;
@@ -104,7 +108,7 @@ header {
 
   nav {
     display: flex;
-    padding: 1.5em;
+    padding: 0.5em 1em;
 
     .branding {
       display: flex;

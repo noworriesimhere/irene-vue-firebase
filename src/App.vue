@@ -28,7 +28,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap");
 
 :root {
-  --color-background: hsla(52, 30%, 91%, 1);
+  --color-background: rgb(243, 243, 243);
   --color-accent: hsla(13, 68%, 63%, 1);
   --color-tertiary: hsla(234, 20%, 30%, 1);
   --color-primary: hsla(151, 24%, 30%, 1);
