@@ -68,6 +68,8 @@ export default {
   @media (max-width: 420px) {
     scroll-snap-type: x mandatory;
     width: 100vw;
+    height: 100%;
+    height: -webkit-fill-available;
     overflow-y: hidden;
     overflow-x: scroll;
     display: flex;

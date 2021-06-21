@@ -182,7 +182,7 @@ header {
       justify-content: space-around;
       padding: 5em;
       width: 100vw;
-      height: 45vh;
+      height: 40%;
       background-color: var(--color-secondary);
       position: fixed;
       bottom: 0;

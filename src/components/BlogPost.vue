@@ -90,21 +90,23 @@ export default {
   }
 
   @media (max-width: 420px) {
+    height: 100%;
+    height: -webkit-fill-available;
     grid-template-columns: 1fr;
-    grid-template-rows: 50vh 50vh;
+    grid-template-rows: 60% 40%;
 
     .photo {
       transform: translate3d(var(--offset-initial), 0, 0);
       grid-row: 2/3;
       img {
         width: 100vw;
-        height: 50vh;
+        height: 100%;
       }
     }
 
     .text {
       grid-row: 1/2;
-      height: 50vh;
+      height: 100%;
       div {
         padding: 2rem;
       }
