@@ -19,7 +19,11 @@
         </ul>
         <i
           @click="toggleMobileNav"
-          class="fas fa-bars menu-icon fa-2x"
+          :class="
+            mobileNav
+              ? 'far fa-times-circle fa-2x'
+              : 'fas fa-bars menu-icon fa-2x'
+          "
           v-show="mobile"
         />
       </div>
@@ -155,7 +159,7 @@ header {
 
   .mobile-nav-enter-active,
   .mobile-nav-leave-active {
-    transition: all 1s ease;
+    transition: all 0.25s ease;
   }
 
   .mobile-nav-enter-from {
@@ -178,7 +182,7 @@ header {
       justify-content: space-around;
       padding: 5em;
       width: 100vw;
-      height: 40vh;
+      height: 45vh;
       background-color: var(--color-secondary);
       position: fixed;
       bottom: 0;
@@ -188,7 +192,7 @@ header {
 
     .mobile-nav-enter-active,
     .mobile-nav-leave-active {
-      transition: all 1s ease;
+      transition: all 0.5s ease;
     }
 
     .mobile-nav-enter-from {

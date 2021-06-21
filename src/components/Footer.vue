@@ -36,6 +36,10 @@ footer {
   writing-mode: vertical-rl;
   text-orientation: mixed;
 
+  @media (max-width: 420px) {
+    display: none;
+  }
+
   section {
     text-align: center;
     padding: 2em 0;

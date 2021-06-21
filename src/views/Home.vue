@@ -5,6 +5,7 @@
       :key="index"
       :post="post"
       :offset="offset"
+      :offsetFactor="index + index"
     />
   </div>
 </template>
@@ -45,8 +46,13 @@ export default {
   },
   mounted() {
     this.$refs.home.addEventListener("scroll", (e) => {
-      this.offset =
-        2 * Math.abs(e.target.children[0].getBoundingClientRect().top);
+      if (window.innerWidth > 420) {
+        let topOffset = e.target.children[0].getBoundingClientRect().top;
+        this.offset = -2 * topOffset;
+      } else {
+        let leftOffset = e.target.children[0].getBoundingClientRect().left;
+        this.offset = -2 * leftOffset;
+      }
     });
   },
 };
@@ -57,5 +63,14 @@ export default {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   height: 100vh;
+  position: fixed;
+
+  @media (max-width: 420px) {
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+  }
 }
 </style>

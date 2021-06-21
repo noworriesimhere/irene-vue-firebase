@@ -1,6 +1,6 @@
 <template>
-  <div class="page-wrapper">
-    <div class="photo" :style="cssProps">
+  <div class="page-wrapper" ref="photo">
+    <div class="photo" :style="scrollOffset">
       <img :src="require(`../assets/img/${post.photo}.jpg`)" alt="" />
     </div>
     <div class="text">
@@ -8,7 +8,6 @@
         <h1 v-if="post.main">{{ post.title }}</h1>
         <h2 v-else>{{ post.title }}</h2>
         <p>{{ post.blogPost }}</p>
-        <p>{{ offset }}</p>
       </div>
     </div>
   </div>
@@ -17,13 +16,49 @@
 <script>
 export default {
   name: "blogPost",
-  props: ["post", "offset"],
+  props: ["post", "offset", "offsetFactor"],
+  data() {
+    return {
+      mountedOffset: 0,
+    };
+  },
   computed: {
-    cssProps() {
+    scrollOffset() {
+      //get the new offset position from initial offsetted location
       return {
-        "--offset": this.offset + "px",
+        "--offset-initial": this.mountedOffset + this.offset + "px",
       };
     },
+  },
+  mounted() {
+    //don't offset the first picture
+    if (this.offsetFactor === 1) {
+      return;
+    }
+
+    if (window.innerWidth > 420) {
+      //the initiral offset for each photo
+      this.mountedOffset =
+        -this.$parent.$refs.home.getBoundingClientRect().height *
+        this.offsetFactor;
+      //readjust the offset if window size changes
+      window.addEventListener("resize", () => {
+        this.mountedOffset =
+          -this.$parent.$refs.home.getBoundingClientRect().height *
+          this.offsetFactor;
+      });
+    } else {
+      //the initiral offset for each photo
+      this.mountedOffset =
+        -this.$parent.$refs.home.getBoundingClientRect().width *
+        this.offsetFactor;
+      //readjust the offset if window size changes
+      window.addEventListener("resize", () => {
+        this.mountedOffset =
+          -this.$parent.$refs.home.getBoundingClientRect().width *
+          this.offsetFactor;
+      });
+    }
   },
 };
 </script>
@@ -32,11 +67,11 @@ export default {
 .page-wrapper {
   height: 100vh;
   display: grid;
-  grid-template-columns: 50vw 50vw;
   scroll-snap-align: start;
+  grid-template-columns: 50vw 50vw;
 
   .photo {
-    transform: translateY(var(--offset));
+    transform: translate3d(0, var(--offset-initial), 0);
     img {
       width: 50vw;
       height: 100vh;
@@ -51,6 +86,28 @@ export default {
     height: 100vh;
     div {
       padding: 7rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 50vh 50vh;
+
+    .photo {
+      transform: translate3d(var(--offset-initial), 0, 0);
+      grid-row: 2/3;
+      img {
+        width: 100vw;
+        height: 50vh;
+      }
+    }
+
+    .text {
+      grid-row: 1/2;
+      height: 50vh;
+      div {
+        padding: 2rem;
+      }
     }
   }
 }

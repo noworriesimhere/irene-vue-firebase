@@ -39,7 +39,14 @@ export default {
   box-sizing: border-box;
 }
 
+html {
+  height: -webkit-fill-available;
+  overflow: hidden;
+}
+
 body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   margin: 0;
   font-family: "Comfortaa", cursive;
   background-color: var(--color-background);
