@@ -39,24 +39,20 @@ export default {
     if (window.innerWidth > 420) {
       //the initiral offset for each photo
       this.mountedOffset =
-        -this.$parent.$refs.home.getBoundingClientRect().height *
-        this.offsetFactor;
+        -this.$parent.$refs.home.clientHeight * this.offsetFactor;
       //readjust the offset if window size changes
       window.addEventListener("resize", () => {
         this.mountedOffset =
-          -this.$parent.$refs.home.getBoundingClientRect().height *
-          this.offsetFactor;
+          -this.$parent.$refs.home.clientHeight * this.offsetFactor;
       });
     } else {
       //the initiral offset for each photo
       this.mountedOffset =
-        -this.$parent.$refs.home.getBoundingClientRect().width *
-        this.offsetFactor;
+        -this.$parent.$refs.home.clientWidth * this.offsetFactor;
       //readjust the offset if window size changes
       window.addEventListener("resize", () => {
         this.mountedOffset =
-          -this.$parent.$refs.home.getBoundingClientRect().width *
-          this.offsetFactor;
+          -this.$parent.$refs.home.clientWidth * this.offsetFactor;
       });
     }
   },

@@ -41,12 +41,12 @@ export default {
 
 html {
   height: -webkit-fill-available;
-  overflow: hidden;
 }
 
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
+  overflow: hidden;
   margin: 0;
   font-family: "Comfortaa", cursive;
   background-color: var(--color-background);

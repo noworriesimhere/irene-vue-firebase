@@ -16,29 +16,24 @@ import BlogPost from "../components/BlogPost.vue";
 import LocationIndicator from "../components/LocationIndicator.vue";
 
 export default {
-  name: "Home",
+  name: "MyWork",
   components: { BlogPost, LocationIndicator },
   data() {
     return {
       pages: [
         {
-          title: "Flowers and things",
+          title: "My past projects",
           blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
           photo: "flowers1",
           main: true,
         },
         {
-          title: "Lorem, ipsum.",
+          title: "More about me",
           blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
           photo: "flowers2",
         },
         {
-          title: "Lorem, ipsum dolor.",
-          blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-          photo: "flowers3",
-        },
-        {
-          title: "Lorem ipsum dolor sit.",
+          title: "Last page",
           blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
           photo: "flowers4",
         },
@@ -49,10 +44,8 @@ export default {
   mounted() {
     if (window.innerWidth > 510) {
       this.$refs.home.addEventListener("scroll", (e) => {
-        window.requestAnimationFrame(() => {
-          let topOffset = e.target.scrollTop;
-          this.offset = 2 * topOffset;
-        });
+        let topOffset = e.target.scrollTop;
+        this.offset = 2 * topOffset;
       });
     } else {
       this.$refs.home.addEventListener("scroll", (e) => {
@@ -71,6 +64,7 @@ export default {
   height: 100vh;
   width: 100%;
   position: fixed;
+  display: grid;
 
   @media (max-width: 510px) {
     scroll-snap-type: x mandatory;

@@ -3,7 +3,7 @@
     <nav class="container">
       <div class="branding">
         <router-link class="header" :to="{ name: 'Home' }"
-          >Uptown Blooms</router-link
+          >Something Blooms</router-link
         >
       </div>
       <div class="nav-links">
@@ -14,8 +14,12 @@
           <router-link class="link" :to="{ name: 'About' }"
             >About Me</router-link
           >
-          <router-link class="link" to="#">Past Work</router-link>
-          <router-link class="link" to="#">Contact Me</router-link>
+          <router-link class="link" :to="{ name: 'Mywork' }"
+            >Past Work</router-link
+          >
+          <router-link class="link" :to="{ name: 'Contact' }"
+            >Contact Me</router-link
+          >
         </ul>
         <i
           @click="toggleMobileNav"
@@ -29,20 +33,34 @@
       </div>
     </nav>
     <transition name="mobile-nav">
-      <ul class="mobile-nav" v-show="mobileNav">
-        <router-link class="link" :to="{ name: 'Home' }">Main Page</router-link>
-        <router-link class="link" :to="{ name: 'About' }">About Me</router-link>
-        <router-link class="link" to="#">Past Work</router-link>
-        <router-link class="link" to="#">Contact Me</router-link>
-      </ul>
+      <div v-on:click="toggleMobileNav" class="mobile-nav" v-show="mobileNav">
+        <ul>
+          <router-link class="link" :to="{ name: 'Home' }"
+            >Main Page</router-link
+          >
+          <router-link class="link" :to="{ name: 'About' }"
+            >About Me</router-link
+          >
+          <router-link class="link" :to="{ name: 'Mywork' }"
+            >Past Work</router-link
+          >
+          <router-link class="link" :to="{ name: 'Contact' }"
+            >Contact Me</router-link
+          >
+        </ul>
+        <Footer showMe="true" />
+      </div>
     </transition>
   </header>
 </template>
 
 <script>
+import Footer from "./Footer.vue";
 export default {
   name: "Navigation",
-  components: {},
+  components: {
+    Footer,
+  },
   data() {
     return {
       mobile: null,
@@ -110,6 +128,21 @@ header {
     }
   }
 
+  .router-link-exact-active.link {
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0.1em;
+      background-color: var(--color-primary);
+      opacity: 1;
+      transform: translate3d(0, 0.5em, 0);
+      transition: opacity 300ms, transform 300ms;
+    }
+  }
+
   nav {
     display: flex;
     padding: 0.5em 1em;
@@ -145,16 +178,21 @@ header {
 
   .mobile-nav {
     margin-top: 0;
-    padding: 20px;
+    padding: 30px;
     width: 50vw;
-    display: flex;
-    flex-direction: column;
     position: fixed;
     height: 100%;
     background-color: var(--color-secondary);
     top: 0;
     left: 0;
     z-index: 99;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+    }
   }
 
   .mobile-nav-enter-active,
@@ -174,13 +212,13 @@ header {
     transform: translateX(-50vw);
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 510px) {
     .mobile-nav {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      padding: 5em;
+      padding: 2em 5em 5em 5em;
       width: 100vw;
       height: 40%;
       background-color: var(--color-secondary);
@@ -188,6 +226,10 @@ header {
       bottom: 0;
       top: unset;
       margin: 0;
+
+      ul {
+        text-align: center;
+      }
     }
 
     .mobile-nav-enter-active,

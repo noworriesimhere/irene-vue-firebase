@@ -1,10 +1,7 @@
 <template>
-  <footer>
+  <footer :style="showMe ? 'display: unset' : ''">
     <section>
-      <small>Uptown Blooms Copyright 2021</small>
-    </section>
-    <section>
-      <small>Developed by <a href="https://alantran.tech">Alan Tran</a></small>
+      <small>Something Blooms Copyright 2021</small>
     </section>
     <section>
       <a href="#">
@@ -14,46 +11,53 @@
         <i class="fab fa-instagram" />
       </a>
     </section>
+    <section>
+      <small>Developed by <a href="https://alantran.tech">Alan Tran</a></small>
+    </section>
   </footer>
 </template>
 
 <script>
 export default {
   name: "footer-vue",
+  props: ["showMe"],
 };
 </script>
 
 <style lang="scss" scoped>
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   position: fixed;
   bottom: 0;
   right: 0;
-  height: 100vh;
-  padding: 5em 0.25em 0 0.25em;
-  background-color: var(--color-background);
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-
-  @media (max-width: 420px) {
-    display: none;
-  }
+  width: 50vw;
 
   section {
     text-align: center;
-    padding: 2em 0;
+    padding: 0.5em;
   }
 
   i {
-    padding: 1em 0;
+    padding: 0 1em;
     color: var(--color-primary);
   }
 
-  /* @media (max-width: 850px) {
-    position: absolute;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-  } */
+  @media (max-width: 850px) {
+    right: unset;
+    left: 0;
+    z-index: 100;
+    background-color: unset;
+    display: none;
+  }
+
+  @media (max-width: 510px) {
+    display: none;
+    width: 100%;
+
+    section {
+      padding: 0.1em;
+    }
+  }
 }
 </style>
