@@ -1,15 +1,16 @@
 <template>
   <div ref="home" class="home">
     <BlogPost
-      v-for="(post, index) in pages"
+      v-for="(post, index) in cards"
       :key="index"
       :post="post"
       :offset="offset"
       :offsetFactor="index + index"
     />
-    <LocationIndicator :items="pages" :offset="offset / 2" />
+    <LocationIndicator :items="cards" :offset="offset / 2" />
   </div>
 </template>
+
 
 <script>
 import BlogPost from "../components/BlogPost.vue";
@@ -20,39 +21,19 @@ export default {
   components: { BlogPost, LocationIndicator },
   data() {
     return {
-      pages: [
-        {
-          title: "Flowers and things",
-          blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-          photo: "flowers1",
-          main: true,
-        },
-        {
-          title: "Lorem, ipsum.",
-          blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-          photo: "flowers2",
-        },
-        {
-          title: "Lorem, ipsum dolor.",
-          blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-          photo: "flowers3",
-        },
-        {
-          title: "Lorem ipsum dolor sit.",
-          blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-          photo: "flowers4",
-        },
-      ],
       offset: null,
     };
+  },
+  computed: {
+    cards() {
+      return this.$store.state.homeCards;
+    },
   },
   mounted() {
     if (window.innerWidth > 510) {
       this.$refs.home.addEventListener("scroll", (e) => {
-        window.requestAnimationFrame(() => {
-          let topOffset = e.target.scrollTop;
-          this.offset = 2 * topOffset;
-        });
+        let topOffset = e.target.scrollTop;
+        this.offset = 2 * topOffset;
       });
     } else {
       this.$refs.home.addEventListener("scroll", (e) => {
@@ -71,6 +52,7 @@ export default {
   height: 100vh;
   width: 100%;
   position: fixed;
+  display: grid;
 
   @media (max-width: 510px) {
     scroll-snap-type: x mandatory;

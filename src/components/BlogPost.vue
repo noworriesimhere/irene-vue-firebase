@@ -9,6 +9,10 @@
         <h2 v-else>{{ post.title }}</h2>
         <p>{{ post.blogPost }}</p>
       </div>
+      <div class="edit-icons" v-if="editContent">
+        <i class="fas fa-edit fa-2x"></i>
+        <i class="fas fa-trash-alt fa-2x"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +27,9 @@ export default {
     };
   },
   computed: {
+    editContent() {
+      return this.$store.state.editContent;
+    },
     scrollOffset() {
       //get the new offset position from initial offsetted location
       return {
@@ -77,6 +84,7 @@ export default {
   }
 
   .text {
+    position: relative;
     display: grid;
     place-items: center;
     height: 100vh;
@@ -85,7 +93,7 @@ export default {
     }
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 510px) {
     height: 100%;
     height: -webkit-fill-available;
     grid-template-columns: 1fr;
@@ -106,6 +114,16 @@ export default {
       div {
         padding: 2rem;
       }
+    }
+  }
+
+  .edit-icons {
+    position: absolute;
+    bottom: 0;
+
+    i {
+      margin: 1em;
+      cursor: pointer;
     }
   }
 }

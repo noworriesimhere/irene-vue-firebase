@@ -8,6 +8,9 @@
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer.vue";
 
+import firebase from "firebase/app";
+import "firebase/auth";
+
 export default {
   name: "app",
   components: {
@@ -17,7 +20,15 @@ export default {
   data() {
     return {};
   },
-  created() {},
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      this.$store.commit("updateUser", user);
+      if (user) {
+        this.$store.dispatch("getCurrentUser");
+        console.log(this.$store.state.user.email);
+      }
+    });
+  },
   mounted() {},
   methods: {},
   watch: {},
@@ -60,5 +71,10 @@ h4,
 h5,
 h6 {
   font-weight: 400;
+}
+
+.error {
+  text-align: center;
+  color: red;
 }
 </style>

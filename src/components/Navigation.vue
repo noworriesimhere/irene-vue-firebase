@@ -6,6 +6,17 @@
           >Something Blooms</router-link
         >
       </div>
+      <div class="edit-mode" v-if="$store.state.user">
+        <span @click="signOut">Log Out</span>
+
+        <label class="switch">
+          <input type="checkbox" v-model="editContent" />
+          <div>
+            <span></span>
+          </div>
+        </label>
+        <button class="button" v-if="editContent">New Page</button>
+      </div>
       <div class="nav-links">
         <ul v-show="!mobile">
           <router-link class="link" :to="{ name: 'Home' }"
@@ -33,8 +44,8 @@
       </div>
     </nav>
     <transition name="mobile-nav">
-      <div v-on:click="toggleMobileNav" class="mobile-nav" v-show="mobileNav">
-        <ul>
+      <div class="mobile-nav" v-show="mobileNav">
+        <ul v-on:click="toggleMobileNav">
           <router-link class="link" :to="{ name: 'Home' }"
             >Main Page</router-link
           >
@@ -51,21 +62,39 @@
         <Footer showMe="true" />
       </div>
     </transition>
+    <transition name="page-transition">
+      <div class="page-transition" v-show="transitioning"></div>
+    </transition>
   </header>
 </template>
 
 <script>
 import Footer from "./Footer.vue";
+
+import firebase from "firebase/app";
+import "firebase/auth";
+
 export default {
   name: "Navigation",
   components: {
     Footer,
+  },
+  computed: {
+    editContent: {
+      get() {
+        return this.$store.state.editContent;
+      },
+      set(payload) {
+        this.$store.commit("toggleEditContent", payload);
+      },
+    },
   },
   data() {
     return {
       mobile: null,
       mobileNav: null,
       windowWidth: null,
+      transitioning: false,
     };
   },
   created() {
@@ -84,14 +113,30 @@ export default {
       return;
     },
 
+    signOut() {
+      firebase.auth().signOut();
+      window.location.reload();
+    },
+
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
+    },
+
+    transitionPage() {
+      this.mobileNav = false;
+      this.transitioning = true;
+      setTimeout(() => (this.transitioning = false), 500);
+    },
+  },
+  watch: {
+    $route() {
+      this.transitionPage();
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 header {
   z-index: 99;
   position: fixed;
@@ -248,6 +293,143 @@ header {
     .mobile-nav-leave-to {
       transform: translateY(50vh);
     }
+  }
+
+  .page-transition {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-secondary);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .page-transition-enter-active,
+  .page-transition-leave-active {
+    transition: all 0.25s ease-in-out;
+  }
+
+  .page-transition-enter-from {
+    transform: translateX(-100vw);
+  }
+
+  .page-transition-enter-to {
+    transform: translateX(0px);
+  }
+
+  .page-transition-leave-to {
+    transform: translateX(100vw);
+  }
+}
+
+.edit-mode {
+  position: absolute;
+  top: 60px;
+  display: flex;
+  align-items: center;
+  height: 34px;
+
+  span {
+  }
+
+  @media (max-width: 510px) {
+    width: 100%;
+  }
+}
+
+.switch {
+  --line: var(--color-accent);
+  --dot: var(--color-tertiary);
+  --circle: var(--color-tertiary);
+  --duration: 0.3s;
+  --text: #9ea0be;
+  cursor: pointer;
+  margin: 2em;
+  input {
+    display: none;
+    & + div {
+      position: relative;
+      &:before,
+      &:after {
+        --s: 1;
+        content: "";
+        position: absolute;
+        height: 4px;
+        top: 10px;
+        width: 24px;
+        background: var(--line);
+        transform: scaleX(var(--s));
+        transition: transform var(--duration) ease;
+      }
+      &:before {
+        --s: 0;
+        left: 0;
+        transform-origin: 0 50%;
+        border-radius: 2px 0 0 2px;
+      }
+      &:after {
+        left: 28px;
+        transform-origin: 100% 50%;
+        border-radius: 0 2px 2px 0;
+      }
+      span {
+        padding-left: 56px;
+        line-height: 24px;
+        color: var(--text);
+        &:before {
+          --x: 0;
+          --b: var(--circle);
+          --s: 4px;
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          box-shadow: inset 0 0 0 var(--s) var(--b);
+          transform: translateX(var(--x));
+          transition: box-shadow var(--duration) ease,
+            transform var(--duration) ease;
+        }
+        &:not(:empty) {
+          padding-left: 64px;
+        }
+      }
+    }
+    &:checked {
+      & + div {
+        &:before {
+          --s: 1;
+        }
+        &:after {
+          --s: 0;
+        }
+        span {
+          &:before {
+            --x: 28px;
+            --s: 12px;
+            --b: var(--dot);
+          }
+        }
+      }
+    }
+  }
+}
+
+.button {
+  background: none;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.5em;
+  margin: 0 2em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.1s ease;
+
+  &:active {
+    transform-origin: 50% 50%;
+    transform: scale(0.9);
   }
 }
 </style>
