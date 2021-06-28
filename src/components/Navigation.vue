@@ -7,7 +7,11 @@
         >
       </div>
       <div class="edit-mode" v-if="$store.state.user">
-        <span @click="signOut">Log Out</span>
+        <span
+          @click="signOut"
+          style="cursor: pointer; text-decoration: underline"
+          >Log Out</span
+        >
 
         <label class="switch">
           <input type="checkbox" v-model="editContent" />
@@ -328,9 +332,6 @@ header {
   display: flex;
   align-items: center;
   height: 34px;
-
-  span {
-  }
 
   @media (max-width: 510px) {
     width: 100%;
