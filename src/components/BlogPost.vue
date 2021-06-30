@@ -4,27 +4,38 @@
       <img :src="require(`../assets/img/${post.photo}.jpg`)" alt="" />
     </div>
     <div class="text">
-      <div>
+      <div v-if="!editMode">
         <h1 v-if="post.main">{{ post.title }}</h1>
         <h2 v-else>{{ post.title }}</h2>
         <p>{{ post.blogPost }}</p>
       </div>
       <div class="edit-icons" v-if="editContent">
-        <i class="fas fa-edit fa-2x"></i>
+        <i class="fas fa-edit fa-2x" @click="toggleEdit"></i>
         <i class="fas fa-trash-alt fa-2x"></i>
       </div>
+      <UpdatePost v-if="editMode" :post="post" />
     </div>
   </div>
 </template>
 
 <script>
+import UpdatePost from "./UpdatePost.vue";
 export default {
   name: "blogPost",
   props: ["post", "offset", "offsetFactor"],
+  components: {
+    UpdatePost,
+  },
   data() {
     return {
       mountedOffset: 0,
+      editMode: false,
     };
+  },
+  methods: {
+    toggleEdit() {
+      this.editMode = !this.editMode;
+    },
   },
   computed: {
     editContent() {

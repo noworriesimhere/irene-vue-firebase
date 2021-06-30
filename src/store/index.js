@@ -34,7 +34,11 @@ export default createStore({
     profileEmail: null,
     profileName: null,
     profileId: null,
-    user: null
+    user: null,
+    sectionTitle: "",
+    sectionPhoto: "",
+    sectionPhotoURL: "",
+    sectionBlogPost: ""
   },
   mutations: {
     toggleEditContent(state, payload) {
@@ -54,7 +58,7 @@ export default createStore({
       const dataBase = await db.collection('users').doc(firebase.auth().currentUser.uid);
       const dbResults = await dataBase.get();
       commit("setProfileInfo", dbResults);
-    }
+    },
   },
   modules: {
   }

@@ -37,30 +37,30 @@ const routes = [
       title: 'Contact Me!'
     }
   },
-  {
-    path: '/iamirene',
-    name: 'Login',
-    component: () => import('../views/Login.vue'),
-    meta: {
-      title: 'Hi Irene!'
-    }
-  },
-  {
-    path: '/ikindaforgot',
-    name: 'Forgotpassword',
-    component: () => import('../views/ForgotPassword.vue'),
-    meta: {
-      title: 'Recover my password!'
-    }
-  },
-  {
-    path: '/makenewadmin',
-    name: 'Newadmin',
-    component: () => import('../views/Register.vue'),
-    meta: {
-      title: 'Get Some Help'
-    }
-  },
+  // {
+  //   path: '/iamirene',
+  //   name: 'Login',
+  //   component: () => import('../views/Login.vue'),
+  //   meta: {
+  //     title: 'Hi Irene!'
+  //   }
+  // },
+  // {
+  //   path: '/ikindaforgot',
+  //   name: 'Forgotpassword',
+  //   component: () => import('../views/ForgotPassword.vue'),
+  //   meta: {
+  //     title: 'Recover my password!'
+  //   }
+  // },
+  // {
+  //   path: '/makenewadmin',
+  //   name: 'Newadmin',
+  //   component: () => import('../views/Register.vue'),
+  //   meta: {
+  //     title: 'Get Some Help'
+  //   }
+  // },
 ]
 
 const router = createRouter({
