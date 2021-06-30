@@ -35,10 +35,6 @@ export default createStore({
     profileName: null,
     profileId: null,
     user: null,
-    sectionTitle: "",
-    sectionPhoto: "",
-    sectionPhotoURL: "",
-    sectionBlogPost: ""
   },
   mutations: {
     toggleEditContent(state, payload) {

@@ -1,6 +1,14 @@
 <template>
   <Navigation />
-  <router-view />
+  <!-- <transition name="fade" mode="out-in">
+    <router-view />
+  </transition> -->
+
+  <router-view v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
   <Footer />
 </template>
 
@@ -25,7 +33,6 @@ export default {
       this.$store.commit("updateUser", user);
       if (user) {
         this.$store.dispatch("getCurrentUser");
-        console.log(this.$store.state.user.email);
       }
     });
   },
@@ -76,5 +83,15 @@ h6 {
 .error {
   text-align: center;
   color: red;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 </style>

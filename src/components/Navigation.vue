@@ -314,7 +314,7 @@ header {
   }
 
   .page-transition-enter-from {
-    transform: translateX(-100vw);
+    transform: translateX(100vw);
   }
 
   .page-transition-enter-to {
@@ -322,7 +322,7 @@ header {
   }
 
   .page-transition-leave-to {
-    transform: translateX(100vw);
+    transform: translateX(-100vw);
   }
 }
 

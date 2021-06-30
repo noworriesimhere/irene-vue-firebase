@@ -138,4 +138,14 @@ export default {
     }
   }
 }
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 2s ease;
+}
 </style>

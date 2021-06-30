@@ -37,6 +37,15 @@ const routes = [
       title: 'Contact Me!'
     }
   },
+  {
+    // path: "*",
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: () => import('../views/PageNotFound.vue'),
+    meta: {
+      title: '404'
+    }
+  }
   // {
   //   path: '/iamirene',
   //   name: 'Login',
@@ -70,7 +79,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title} | Something Blooms`;
-  next(); 
+  next();
 })
 
 export default router
