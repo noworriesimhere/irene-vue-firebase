@@ -36,10 +36,27 @@ export default {
         this.offset = 2 * topOffset;
       });
     } else {
-      this.$refs.home.addEventListener("scroll", (e) => {
-        let leftOffset = e.target.scrollLeft;
-        this.offset = 2 * leftOffset;
-      });
+      let timeout;
+      this.$refs.home.addEventListener(
+        "scroll",
+        (e) => {
+          // If there's a timer, cancel it
+          if (timeout) {
+            window.cancelAnimationFrame(timeout);
+            console.log(timeout);
+          }
+
+          // Setup the new requestAnimationFrame()
+          timeout = window.requestAnimationFrame(() => {
+            let leftOffset = e.target.scrollLeft;
+            this.offset = 2 * leftOffset;
+
+            // Run our scroll functions
+            console.log("debounced");
+          });
+        },
+        false
+      );
     }
   },
 };

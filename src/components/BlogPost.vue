@@ -9,23 +9,15 @@
         <h2 v-else>{{ post.title }}</h2>
         <p>{{ post.blogPost }}</p>
       </div>
-      <div class="edit-icons" v-if="editContent">
-        <i class="fas fa-edit fa-2x" @click="toggleEdit"></i>
-        <i class="fas fa-trash-alt fa-2x"></i>
-      </div>
-      <UpdatePost v-if="editMode" :post="post" />
     </div>
   </div>
 </template>
 
 <script>
-import UpdatePost from "./UpdatePost.vue";
 export default {
   name: "blogPost",
   props: ["post", "offset", "offsetFactor"],
-  components: {
-    UpdatePost,
-  },
+  components: {},
   data() {
     return {
       mountedOffset: 0,
