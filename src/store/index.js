@@ -6,7 +6,7 @@ export default createStore({
   state: {
     homeCards: [
       {
-        title: "Flowers and things",
+        title: "Flowers and things test",
         blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
         photo: "flowers1",
         main: true,

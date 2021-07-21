@@ -25,7 +25,6 @@ export default {
           title: "Hey I'm Irene!",
           blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
           photo: "flowers1",
-          main: true,
         },
         {
           title: "More about me",
