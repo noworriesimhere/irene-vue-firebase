@@ -21,18 +21,10 @@
 </template>
 
 <script>
-import { quillEditor } from "vue3-quill";
-
-// import firebase from "firebase/app";
-// import "firebase/auth";
-// import db from "../firebase/firebaseInit";
-
 export default {
   name: "UpdatePost",
   props: ["post"],
-  components: {
-    quillEditor,
-  },
+  components: {},
   data() {
     return {
       postHTML: this.post.blogPost,
@@ -48,13 +40,6 @@ export default {
     onTitleChange(e) {
       console.log(e);
     },
-    //   uploadPost() {
-    //     if (this.postHTML.length !== 0 && this.postTitle.length !== 0) {
-    //       const storageRef =
-    //       return;
-    //     }
-    //     alert("Please fill out both the title and content!")
-    //   }
   },
   setup() {
     const state = {

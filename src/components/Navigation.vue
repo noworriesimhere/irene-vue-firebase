@@ -75,9 +75,6 @@
 <script>
 import Footer from "./Footer.vue";
 
-import firebase from "firebase/app";
-import "firebase/auth";
-
 export default {
   name: "Navigation",
   components: {
@@ -115,11 +112,6 @@ export default {
       this.mobile = false;
       this.mobileNav = false;
       return;
-    },
-
-    signOut() {
-      firebase.auth().signOut();
-      window.location.reload();
     },
 
     toggleMobileNav() {
