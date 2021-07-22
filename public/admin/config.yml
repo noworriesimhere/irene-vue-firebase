@@ -3,7 +3,7 @@ backend:
   branch: netlify-version
 publish_mode: editorial_workflow
 media_folder: "dist/img"
-public_folder: "/img"
+public_folder: ""
 collections:
   - name: "pages"
     label: "Pages"
@@ -11,6 +11,10 @@ collections:
     format: json
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "blogPost", widget: "string" }
-      - { label: "Featured Image", name: "image", widget: "image" }
+      - label: "Cards"
+        name: "cards"
+        widget: "list"
+        fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Description", name: "blogPost", widget: "string" }
+        - { label: "Featured Image", name: "image", widget: "image" }
