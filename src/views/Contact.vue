@@ -20,25 +20,13 @@ export default {
   components: { BlogPost, LocationIndicator },
   data() {
     return {
-      pages: [
-        {
-          title: "Please reach out to me!",
-          blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-          photo: "flowers1",
-        },
-        {
-          title: "More about me",
-          blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-          photo: "flowers2",
-        },
-        {
-          title: "Last page",
-          blogPost: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-          photo: "flowers4",
-        },
-      ],
       offset: null,
     };
+  },
+  computed: {
+    pages() {
+      return this.$store.state.contactCards;
+    },
   },
   mounted() {
     if (window.innerWidth > 510) {

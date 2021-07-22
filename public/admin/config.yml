@@ -9,8 +9,9 @@ collections:
     label: "Pages"
     folder: "src/assets/pages"
     format: json
-    slug: "{{slug}}"
+    slug: "{{filename}}"
     fields:
+      - { label: "Page", name: 'title', widget: "string" }
       - label: "Cards"
         name: "cards"
         widget: "list"

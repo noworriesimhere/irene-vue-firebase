@@ -1,0 +1,15 @@
+{
+  "title": "Contact",
+  "cards": [
+    {
+      "title": "Let's Talk!",
+      "blogPost": "Phone: 123-234-2345",
+      "photo": "flowers5.jpg"
+    },
+    {
+      "title": "second",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers1.jpg"
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 <template>
   <div ref="home" class="home">
     <BlogPost
-      v-for="(post, index) in cards"
+      v-for="(post, index) in pages"
       :key="index"
       :post="post"
       :offset="offset"
       :offsetFactor="index + index"
     />
-    <LocationIndicator :items="cards" :offset="offset / 2" />
+    <LocationIndicator :items="pages" :offset="offset / 2" />
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     };
   },
   computed: {
-    cards() {
+    pages() {
       return this.$store.state.homeCards;
     },
   },

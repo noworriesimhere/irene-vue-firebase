@@ -1,0 +1,15 @@
+{
+  "title": "MyWork",
+  "cards": [
+    {
+      "title": "Some Past Projects :)",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers5.jpg"
+    },
+    {
+      "title": "second",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers1.jpg"
+    }
+  ]
+}
