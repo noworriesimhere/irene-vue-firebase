@@ -1,5 +1,30 @@
 {
-  "title": "test",
-  "blogPost": "test",
-  "image": "/img/screen-shot-2021-07-17-at-10.02.07-am.png"
+  "title": "About",
+  "cards": [
+    {
+      "title": "First",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers5.jpg"
+    },
+    {
+      "title": "second",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers1.jpg"
+    },
+    {
+      "title": "Third",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers4.jpg"
+    },
+    {
+      "title": "fourth",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers1.jpg"
+    },
+    {
+      "title": "fifth",
+      "blogPost": "fsdaf ask asdf asdf sdf asdf asdf asdf",
+      "photo": "flowers4.jpg"
+    }
+  ]
 }
