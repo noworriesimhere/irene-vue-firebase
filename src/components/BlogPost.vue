@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper" ref="photo">
     <div class="photo" :style="scrollOffset">
-      <img :src="require(`../assets/img/${post.photo}.jpg`)" alt="" />
+      <img :src="require(`../assets/img/${post.photo}`)" alt="" />
     </div>
     <div class="text">
       <div v-if="!editMode">
