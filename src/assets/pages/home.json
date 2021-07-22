@@ -1,24 +1,28 @@
 {
   "cards": [
     {
+      "title": "third.",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers3",
+      "image": "screen-shot-2021-07-17-at-10.02.07-am.png"
+    },
+    {
       "title": "Flowers and things",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers1"
+      "photo": "flowers1",
+      "image": "screen-shot-2021-07-17-at-10.02.07-am.png"
     },
     {
       "title": "Lorem, ipsum.",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers2"
-    },
-    {
-      "title": "third.",
-      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers3"
+      "photo": "flowers2",
+      "image": "screen-shot-2021-07-17-at-10.02.07-am.png"
     },
     {
       "title": "Lorem ipsum dolor sit.",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers4"
+      "photo": "flowers4",
+      "image": "screen-shot-2021-07-17-at-10.02.07-am.png"
     }
   ]
 }
