@@ -8,7 +8,7 @@ collections:
   - name: "pages"
     label: "Pages"
     widget: list
-    folder: "src/pages"
+    folder: "src/assets/pages"
     format: json
     slug: "{{slug}}"
     fields:
