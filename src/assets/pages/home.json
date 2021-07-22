@@ -3,26 +3,22 @@
     {
       "title": "third.",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers3",
-      "image": "screen-shot-2021-07-17-at-10.02.07-am.png"
+      "photo": "flowers3"
     },
     {
       "title": "Flowers and things",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers1",
-      "image": "screen-shot-2021-07-17-at-10.02.07-am.png"
+      "photo": "flowers1"
     },
     {
       "title": "Lorem, ipsum.",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers2",
-      "image": "screen-shot-2021-07-17-at-10.02.07-am.png"
+      "photo": "flowers2"
     },
     {
       "title": "Lorem ipsum dolor sit.",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers4",
-      "image": "screen-shot-2021-07-17-at-10.02.07-am.png"
+      "photo": "flowers4"
     }
   ]
 }
