@@ -7,7 +7,6 @@ public_folder: "/img"
 collections:
   - name: "pages"
     label: "Pages"
-    widget: list
     folder: "src/assets/pages"
     format: json
     slug: "{{slug}}"

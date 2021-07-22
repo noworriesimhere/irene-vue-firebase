@@ -4,7 +4,7 @@ import home from '../assets/pages/home.json'
 
 export default createStore({
   state: {
-    homeCards: home,
+    homeCards: home.cards,
   },
   mutations: {
   
