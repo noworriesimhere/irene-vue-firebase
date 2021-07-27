@@ -2,6 +2,11 @@
   "title": "Home",
   "cards": [
     {
+      "title": "Third test test Hi",
+      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+      "photo": "flowers4.jpg"
+    },
+    {
       "title": "Flowers and things",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
       "photo": "flowers5.jpg"
@@ -10,11 +15,6 @@
       "title": "second",
       "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
       "photo": "flowers1.jpg"
-    },
-    {
-      "title": "Third",
-      "blogPost": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-      "photo": "flowers4.jpg"
     },
     {
       "title": "fourth",
